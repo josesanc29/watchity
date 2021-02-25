@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class SearchService {
 
   apiUrl = environment.apiUrl;
-  repo = new BehaviorSubject<any[]>(null);
-  repos$ = this.repo.asObservable();
+  termino = new BehaviorSubject<any>('');
+  repos$ = this.termino.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +19,8 @@ export class SearchService {
     return this.http.get(endpoint, {observe: 'response'});
   }
 
-  serviceSendRepos(repositorios): any{
-    this.repo.next(repositorios);
+  sendMsg(mensaje): any{
+    this.termino.next(mensaje);
   }
 
 }

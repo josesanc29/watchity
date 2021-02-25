@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { SearchService } from './services/search.service';
 
@@ -16,6 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private searchService: SearchService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {}
@@ -25,22 +27,12 @@ export class SearchComponent implements OnInit, OnDestroy, AfterViewInit {
     this.searchInput.nativeElement.focus();
   }
 
-  public searchRepos(): any {
-    this.searchService.getResposFromUser(this.userSearch).subscribe((data) => {
-      this.repos = data;
-      console.log('repos ', this.repos);
-    });
-  }
-
   sendRepos(): any{
-    if (!this.repos.length){
-      return false;
-    }
-    this.searchService.serviceSendRepos(this.repos);
+    this.searchService.sendMsg(this.userSearch);
+    this.router.navigate(['/project']);
   }
 
   ngOnDestroy(): void {
-    // this.sendRepos();
     for (const subs of this.subscriptions) {
       subs.unsubscribe();
     }

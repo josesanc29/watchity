@@ -1,8 +1,8 @@
 <div class="input-group">
     <div class="form-outline">
-        <input type="text" class="form-control" [(ngModel)]="userSearch" (keyup.enter)="searchRepos()" #searchInput/>
+        <input type="text" class="form-control" [(ngModel)]="userSearch" (keyup.enter)="sendRepos()" #searchInput/>
     </div>
-    <button type="button" class="btn btn-primary" (click)="searchRepos()">
+    <button type="button" class="btn btn-primary" (click)="sendRepos()">
         Buscar
     </button>
 </div>

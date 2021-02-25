@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DataDetailComponent } from './data-detail/data-detail.component';
 import { SearchComponent } from './search/search.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { HomeComponent } from './home/home.component';
 import { SearchService } from './search/services/search.service';
 import { GeneralRoutingModule } from './general.routes';
 import { RouterModule } from '@angular/router';
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     SearchComponent,
     DataTableComponent,
-    DataDetailComponent
+    DataDetailComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
   exports: [
     SearchComponent,
     DataTableComponent,
-    DataDetailComponent
+    DataDetailComponent,
+    HomeComponent
   ],
   providers: [
     SearchService

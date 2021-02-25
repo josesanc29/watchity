@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DataDetailComponent } from './data-detail/data-detail.component';
 import { DataTableComponent } from './data-table/data-table.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: DataDetailComponent,
   },
   {
-    path: '',
+    path: 'project',
     component: DataTableComponent,
+  },
+  {
+    path: '',
+    component: HomeComponent,
   },
 ];
 

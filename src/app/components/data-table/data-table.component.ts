@@ -7,19 +7,29 @@ import { SearchService } from '../search/services/search.service';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
+  userSearch = '';
   repositories = [];
   selectRepo = null;
 
   constructor(private searchService: SearchService) { }
 
   printRepos(): any {
-    this.searchService.repos$.subscribe(repos => console.log(repos));
+    this.searchService.repos$.subscribe((message: any) => {
+      console.log('mensaje desde el servicio con rxjs ', message);
+      this.userSearch = message;
+      this.searchRepos();
+    });
+  }
+
+  public searchRepos(): any {
+    this.searchService.getResposFromUser(this.userSearch).subscribe((data) => {
+      this.repositories = data;
+      console.log('repos ', this.repositories);
+    });
   }
 
   ngOnInit(): void {
-  if (this.repositories.length){
     this.printRepos();
-  }
   }
 
   selectedRepo(item): void {
