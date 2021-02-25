@@ -7,6 +7,7 @@ import { SearchService } from './search/services/search.service';
 import { GeneralRoutingModule } from './general.routes';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GeneralRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     SearchComponent,

@@ -7,6 +7,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { SettingsService } from './components/settings/services/settings.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GeneralModule } from '../components/general.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    GeneralModule
   ],
   providers: [
     SettingsService

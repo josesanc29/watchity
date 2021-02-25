@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search/services/search.service';
 
 @Component({
   selector: 'app-data-table',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
+  repositories = [];
+  selectRepo = null;
 
-  constructor() { }
+  constructor(private searchService: SearchService) { }
 
-  ngOnInit(): void {
+  printRepos(): any {
+    this.searchService.repos$.subscribe(repos => console.log(repos));
   }
 
+  ngOnInit(): void {
+  if (this.repositories.length){
+    this.printRepos();
+  }
+  }
+
+  selectedRepo(item): void {
+    console.log(item);
+  }
 }

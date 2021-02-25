@@ -1,1 +1,8 @@
-<p>search works!</p>
+<div class="input-group">
+    <div class="form-outline">
+        <input type="text" class="form-control" [(ngModel)]="userSearch" (keyup.enter)="searchRepos()" #searchInput/>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="searchRepos()">
+        Buscar
+    </button>
+</div>

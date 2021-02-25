@@ -1,1 +1,19 @@
-<p>data-table works!</p>
+<div class="container-fluid">
+    <div *ngIf="repositories.length > 0 else norepos">
+        <table>
+            <tbody>
+                <tr *ngFor="let item of repositories; let i=index;" (click)="selectedRepo(item)">
+                    <td>{{item.Name}}</td>
+                    <td>{{item.Position}}</td>
+                    <td>{{item.Office}}</td>
+                    <td>{{item.Age}}</td>
+                    <td>{{item.StartDate}}</td>
+                    <td>{{item.Salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #norepos>
+        <h5>No hay repositorios para mostrar.</h5>
+    </ng-template>
+</div>
